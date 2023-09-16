@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+
+<div class='container my-3'>
+  
+  <h2>Update the Task</h2>
+
+  <form action='/update/{{tasks.id}}' method="POST">
+  {% csrf_token %}
+  
+  <div class="input-group mt-3 mb-3">
+  
+  <input type="text" aria-label="Task Name" name="update_name" class="form-control mx-2" value="{{tasks.name}}" placeholder="Task Name" required>
+</div>
+  
+  <div class="input-group mb-3">
+
+  <input type="text" aria-label="Task Description" name="update_desc" class="form-control mx-2" value="{{tasks.des}}" placeholder="Task Description" required>
+</div>
+  
+  <div class="input-group mb-3">
+
+  <input type="number" aria-label="Complete in" name="update_complete_in" class="form-control mx-2" value="{{tasks.complete_in}}" placeholder="Expected Completed" required>
+</div>
+  
+  <div class="input-group mb-3">
+  <button class="btn btn-success mx-2" type="submit" id="update_todo">Update Task</button>
+
+</div>
+  </form>
+
+</div>
+
+{% endblock body %}
